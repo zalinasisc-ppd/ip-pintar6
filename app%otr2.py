@@ -101,7 +101,7 @@ elif example_btn:
 # -----------------------------
 # Main UI
 # -----------------------------
-st.title("📊 SiPP — Sistem Indeks Pemberat Mata Pelajaran")
+st.title("📊 SiPP — Sistem Indeks Pemberat Pintar")
 st.markdown("Muat naik data dan jana **IPMP** secara automatik.")
 
 if df_raw is None:
