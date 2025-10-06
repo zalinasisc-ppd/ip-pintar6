@@ -48,7 +48,7 @@ def compute_ipmp(df: pd.DataFrame) -> pd.DataFrame:
             df[c] = pd.to_numeric(df[c], errors="coerce").fillna(0)
 
     # Calculations
-    df["Beza GPMP (PPC - OTR2)"] = df["% L OTR2"] - df["% L PPC"]
+    df["Beza Peratus (PPC - OTR2)"] = df["% L PPC"] - df["% L OTR2"]
     total_ambil = df["Bil. Ambil"].sum()
     df["Pemberat"] = np.where(total_ambil > 0, df["Bil. Ambil"] / total_ambil, 0.0)
     df["IPMP"] = df["Beza Peratus (PPC - OTR2)"] * df["Pemberat"]
@@ -60,7 +60,7 @@ def compute_ipmp(df: pd.DataFrame) -> pd.DataFrame:
     cols = [
         "Mata Pelajaran", "Bil. Daftar", "Bil. Ambil",
         "% L PPC", "% L OTR2",
-        "Beza GPMP (PPC - OTR2)", "Pemberat", "IPMP", "Ranking"
+        "Beza Peratus (PPC - OTR2)", "Pemberat", "IPMP", "Ranking"
     ]
     df = df[[c for c in cols if c in df.columns]].sort_values("Ranking")
     return df
